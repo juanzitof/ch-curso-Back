@@ -30,7 +30,7 @@ class Usuario {
   }
   
   const usuario_uno = new Usuario("Jhon", "Wick");
-  ß
+  
   
   usuario_uno.addMascotas("firulais");
   
