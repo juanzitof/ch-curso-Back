@@ -30,8 +30,7 @@ class Usuario {
   }
   
   const usuario_uno = new Usuario("Jhon", "Wick");
-  
-  getFullName();
+  ß
   
   usuario_uno.addMascotas("firulais");
   
