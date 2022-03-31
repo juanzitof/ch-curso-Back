@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Zapatilla",
+    "price": 1267.45,
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_941056-MLA32966152562_112019-W.jpg",
+    "id": 1
+  },
+  {
+    "title": "Medias",
+    "price": 3458.67,
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_941056-MLA32966152562_112019-W.jpg",
+    "id": 4
+  },
+  {
+    "title": "Short",
+    "price": 3453.67,
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_941056-MLA32966152562_112019-W.jpg",
+    "id": 5
+  }
+]
