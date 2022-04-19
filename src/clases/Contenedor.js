@@ -57,6 +57,32 @@ class Contenedor {
     }
   }
 
+  async registerProduct(product){
+    try{
+        let data = await fs.promises.readFile('./files/product.txt','utf-8');
+        let product = JSON.parse(data);
+        let id = product[product.length-1].id+1;
+        product =Object.assign({id:id},product);
+        product.push(product)
+        try{
+            await fs.promises.writeFile('./files/product.txt',JSON.stringify(product,null,2));
+            return {status:"success",message:"Producto registrado"}
+        }catch{
+            return {statis:"error",message:"No se pudo registrar el producto"} 
+        }
+    }catch{
+
+        product = Object.assign({id:1},product)
+        try{
+            await fs.promises.writeFile('./files/product.txt',JSON.stringify([product],null,2));
+            return {status:"success", message:"Producto registrada"}
+        }
+        catch{
+            return {status:"error",message:"No se pudo registrar el producto"}
+        }
+    }
+  }
+
   async getById(id) {
     try {
       let data = await fs.promises.readFile(
