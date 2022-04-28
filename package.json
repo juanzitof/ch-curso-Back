@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type":"module",
   "scripts": {
     "start": "nodemon app.js"
-    
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/juanzitof/ch-curso-Back#readme",
   "dependencies": {
-    "express": "^4.17.3",
+    "express": "^4.18.0",
+    "express-handlebars": "^6.0.5",
+    "handlebars": "^4.7.7",
     "nodemon": "^2.0.15"
   }
 }

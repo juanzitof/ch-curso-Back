@@ -1,8 +1,9 @@
-const express = require (`express`);
-const router = express.Router();
-const Contenedor = require ("../clases/Contenedor");
-const contenedor = new Contenedor();
+import express from "express";
+import Contenedor from "./clases/Contenedor.js";
+import upload from "./services/uploader.js";
 
+const router = express.Router();
+const contenedor = new Contenedor();
 
 //GETS
 router.get(`/`, (req, res) => {
@@ -19,12 +20,16 @@ router.get("/:id", (req, res) => {
 });
 
 //POSTS
-router.post("/", (req, res) => {
+
+router.post("/", upload.single("image"), (req, res) => {
+  let file = req.file;
   let product = req.body;
-    contenedor.registerProduct(product).then(result=>{
-        res.send(result);
-    })
+  product.thumbnail =
+    req.protocol + "://" + req.hostname + ":8080" + "/images" + file.filename;
+  contenedor.registerProduct(product).then((result) => {
+    res.send(result);
   });
+});
 
 //PUTS
 router.put("/:pid", (req, res) => {
@@ -36,11 +41,11 @@ router.put("/:pid", (req, res) => {
 });
 
 //DELETES
-router.delete('/:pid',(req,res)=>{
-  let id= parseInt(req.params.pid);
-  contenedor.deleteById(id).then(result=>{
-      res.send(result)
+router.delete("/:pid", (req, res) => {
+  let id = parseInt(req.params.pid);
+  contenedor.deleteById(id).then((result) => {
+    res.send(result);
   });
 });
 
-module.exports = router();
+export default router;
